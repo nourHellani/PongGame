@@ -46,8 +46,6 @@ var winImg = new Image();
 var win;
 var loseImg = new Image();
 var lose;
-var timeupImg = new Image();
-var timeup;
 
 //[Score]
 //The score values will be handled by the next variables:
@@ -124,10 +122,6 @@ function Main() {
   loseImg.name = "lose";
   loseImg.onload = loadGfx;
 
-  timeupImg.src = 'assets/png/timesUp.png';
-	timeupImg.name = 'timeup';
-	timeupImg.onload = loadGfx;
-
   /* Ticker */
 
   Ticker.setFPS(30);
@@ -168,7 +162,7 @@ function loadGfx(e) {
   if ((e.target.name = "lose")) {
     lose = new Bitmap(loseImg);
   }
-  if((e.target.name = 'timeup')){
+  if((e.target.name = 'timeup'){
     timeup = new Bitmap(timeupImg);
   }
 

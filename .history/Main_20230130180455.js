@@ -438,7 +438,7 @@ function alert(e) {
   } 
   else if(e == 'timeup')
 	{
-		timeup.x = 140;
+		timeup.x = 1-0;
 		timeup.y = -90;
 	
 		stage.addChild(timeup);

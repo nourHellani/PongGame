@@ -124,7 +124,7 @@ function Main() {
   loseImg.name = "lose";
   loseImg.onload = loadGfx;
 
-  timeupImg.src = 'assets/png/timesUp.png';
+  timeupImg.src = 'output-onlinepngtools.png';
 	timeupImg.name = 'timeup';
 	timeupImg.onload = loadGfx;
 

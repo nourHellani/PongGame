@@ -46,8 +46,6 @@ var winImg = new Image();
 var win;
 var loseImg = new Image();
 var lose;
-var timeupImg = new Image();
-var timeup;
 
 //[Score]
 //The score values will be handled by the next variables:
@@ -123,10 +121,6 @@ function Main() {
   loseImg.src = "assets/png/lose.png";
   loseImg.name = "lose";
   loseImg.onload = loadGfx;
-
-  timeupImg.src = 'assets/png/timesUp.png';
-	timeupImg.name = 'timeup';
-	timeupImg.onload = loadGfx;
 
   /* Ticker */
 

@@ -438,8 +438,8 @@ function alert(e) {
   } 
   else if(e == 'timeup')
 	{
-		timeup.x = 140;
-		timeup.y = -90;
+		timeup.x = 100;
+		timeup.y = -50;
 	
 		stage.addChild(timeup);
 		Tween.get(timeup).to({y: 115}, 300);

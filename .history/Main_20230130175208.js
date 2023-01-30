@@ -46,8 +46,6 @@ var winImg = new Image();
 var win;
 var loseImg = new Image();
 var lose;
-var timeupImg = new Image();
-var timeup;
 
 //[Score]
 //The score values will be handled by the next variables:
@@ -124,10 +122,6 @@ function Main() {
   loseImg.name = "lose";
   loseImg.onload = loadGfx;
 
-  timeupImg.src = 'assets/png/timesUp.png';
-	timeupImg.name = 'timeup';
-	timeupImg.onload = loadGfx;
-
   /* Ticker */
 
   Ticker.setFPS(30);
@@ -167,9 +161,6 @@ function loadGfx(e) {
   }
   if ((e.target.name = "lose")) {
     lose = new Bitmap(loseImg);
-  }
-  if((e.target.name = 'timeup')){
-    timeup = new Bitmap(timeupImg);
   }
 
   gfxLoaded++;
@@ -273,7 +264,7 @@ function addGameView() {
 	time.x = 120;
 	time.y = 20;
 
-  stage.addChild(playerScore, cpuScore,timer,time, player, cpu, ball);
+  stage.addChild(playerScore, cpuScore, player, cpu, ball);
   stage.update();
 
   // Start Listener
@@ -446,8 +437,7 @@ function alert(e) {
 		
 		
 	}
-  else if(e == 'lose')
-  {
+  else if(e == 'lose'){
     lose.x = 140;
     lose.y = -90;
 

@@ -46,8 +46,6 @@ var winImg = new Image();
 var win;
 var loseImg = new Image();
 var lose;
-var timeupImg = new Image();
-var timeup;
 
 //[Score]
 //The score values will be handled by the next variables:
@@ -124,10 +122,6 @@ function Main() {
   loseImg.name = "lose";
   loseImg.onload = loadGfx;
 
-  timeupImg.src = 'assets/png/timesUp.png';
-	timeupImg.name = 'timeup';
-	timeupImg.onload = loadGfx;
-
   /* Ticker */
 
   Ticker.setFPS(30);
@@ -167,9 +161,6 @@ function loadGfx(e) {
   }
   if ((e.target.name = "lose")) {
     lose = new Bitmap(loseImg);
-  }
-  if((e.target.name = 'timeup')){
-    timeup = new Bitmap(timeupImg);
   }
 
   gfxLoaded++;
@@ -263,17 +254,7 @@ function addGameView() {
   cpuScore.x = 262;
   cpuScore.y = 20;
 
-  timer = new Text('Timer:', 'bold 20px Arial', '#A3FF24');
-	timer.maxWidth = 1000;	//fix for Chrome 17
-	timer.x = 50;
-	timer.y = 20;
-
-	time = new Text('60', 'bold 20px Arial', '#A3FF24');
-	time.maxWidth = 1000;	//fix for Chrome 17
-	time.x = 120;
-	time.y = 20;
-
-  stage.addChild(playerScore, cpuScore,timer,time, player, cpu, ball);
+  stage.addChild(playerScore, cpuScore, player, cpu, ball);
   stage.update();
 
   // Start Listener
@@ -339,9 +320,6 @@ function update() {
     SoundJS.play("wall");
   } //down
 
-  if (!timer_on) {
-    timer_on = 1;
-    timedCount();}
   /* CPU Score */
 
   if (ball.x < 0) {
@@ -402,28 +380,7 @@ function update() {
     alert("lose");
   }
 }
-function timedCount() {
-  
-  if ( parseInt(time.text) > 0) {time.text = parseInt(time.text - 1);}
- else{ 
- 
- clearTimeout(timeout);
- alert('timeup');
 
- parseInt(time.text)=60; 		//to avoid loop of timeout
- 
- reset();
- timer_on = 0;
-
- //console.log("loop");
-
-}
- timeout = setTimeout(timedCount, 1000);
-}
-
-function stopCount() {
-
-}
 function alert(e) {
   Ticker.removeListener(tkr);
   stage.onMouseMove = null;
@@ -435,19 +392,7 @@ function alert(e) {
 
     stage.addChild(win);
     Tween.get(win).to({ y: 115 }, 300);
-  } 
-  else if(e == 'timeup')
-	{
-		timeup.x = 140;
-		timeup.y = -90;
-	
-		stage.addChild(timeup);
-		Tween.get(timeup).to({y: 115}, 300);
-		
-		
-	}
-  else if(e == 'lose')
-  {
+  } else {
     lose.x = 140;
     lose.y = -90;
 
