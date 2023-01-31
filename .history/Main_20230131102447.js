@@ -268,7 +268,7 @@ function addGameView() {
 	timer.x = 50;
 	timer.y = 20;
 
-	time = new Text('5', 'bold 20px Arial', '#A3FF24');
+	time = new Text('60', 'bold 20px Arial', '#A3FF24');
 	time.maxWidth = 1000;	//fix for Chrome 17
 	time.x = 120;
 	time.y = 20;
@@ -429,7 +429,7 @@ function timedCount() {
  clearTimeout(timeout);
  alert('timeup');
 
- parseInt(time.text)=5; 		//to avoid loop of timeout
+ parseInt(time.text)=60; 		//to avoid loop of timeout
  
  reset();
  timer_on = 0;
