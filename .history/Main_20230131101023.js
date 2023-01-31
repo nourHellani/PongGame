@@ -393,7 +393,7 @@ function update() {
 
   /* Check for Win */
 
-  if (playerScore.text == "1") {
+  if (playerScore.text == "10") {
     alert("win");
     clearTimeout(timeout);
     parseInt(time.text)=60; 		//to avoid loop of timeout
