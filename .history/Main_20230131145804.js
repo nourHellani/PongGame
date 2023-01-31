@@ -1,4 +1,18 @@
 
+element.addEventListener("touchstart", touchStart, false);
+element.addEventListener("touchmove", touchMove, false);
+element.addEventListener("touchend", touchEnd, false);
+element.addEventListener("touchcancel", touchCancel, false);
+element.addEventListener("touchforcechange", touchForceChange, false);
+
+function touchStart(event) {
+  // Insert your code here
+}
+
+
+
+
+
 let counter = 0;
 let timeout;
 let timer_on = 0;
@@ -65,10 +79,14 @@ var gfxLoaded = 0; //used as a preloader, counts the already loaded items
 var tkr = new Object(); //used as an event listener to the Ticker
 
 
+
+
+
 // Main Function
 
 function Main() {
   /* Link Canvas */
+
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
 

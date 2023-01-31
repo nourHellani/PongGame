@@ -1,4 +1,3 @@
-
 let counter = 0;
 let timeout;
 let timer_on = 0;
@@ -65,12 +64,27 @@ var gfxLoaded = 0; //used as a preloader, counts the already loaded items
 var tkr = new Object(); //used as an event listener to the Ticker
 
 
+
+function touchHandler(e) {
+  if (e.touches) {
+    playerX = e.touches[0].pageX - canvas.offsetLeft - playerWidth / 2;
+    playerY = e.touches[0].pageY - canvas.offsetTop - playerHeight / 2;
+    output.textContent = `Touch:  x: ${playerX}, y: ${playerY}`;
+    e.preventDefault();
+  }
+}
+
 // Main Function
 
 function Main() {
   /* Link Canvas */
+
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
+  stage.addEventListener("touchstart", handleStart);
+  stage.addEventListener("touchmove", handleMove);
+  stage.addEventListener("touchend", handleEnd);
+  stage.addEventListener("touchcancel", handleCancel);
 
 
   /* Sound */
@@ -285,6 +299,7 @@ function addGameView() {
 
 function movePaddle(e) {
   // Mouse Movement
+
   player.y = e.stageY;
 }
 

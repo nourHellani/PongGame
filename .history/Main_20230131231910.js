@@ -69,7 +69,10 @@ var tkr = new Object(); //used as an event listener to the Ticker
 
 function Main() {
   /* Link Canvas */
-  canvas = document.getElementById("Pong");
+  var canvas = document.createElement("canvas");
+  document.body.appendChild(canvas);
+  var ctx = canv.getContext("2d"); 
+  // canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
 
 

@@ -1,4 +1,3 @@
-
 let counter = 0;
 let timeout;
 let timer_on = 0;
@@ -64,13 +63,37 @@ var ySpeed = 5; //Vertical speed of the ball
 var gfxLoaded = 0; //used as a preloader, counts the already loaded items
 var tkr = new Object(); //used as an event listener to the Ticker
 
+function touch(y)
+function touchCancel(ev){
+  touch(null);
+}
+function touchEnd(ev){
+  touch(null);
+}
+function touchMove(ev){
+  touch(ev.touches[0].clientY);
+}
+function touchStart(ev){
+  serve();
+  touch(ev.touches[0].clientY);
+  
+}
+
+
 
 // Main Function
 
 function Main() {
   /* Link Canvas */
+
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
+
+  stage.mouseEventsEnabled = true;
+  stage.addEventListener("touchcancel" ,touchCancel);
+  stage.addEventListener("touchend" ,touchEnd);
+  stage.addEventListener("touchmove" ,touchMove);
+  stage.addEventListener("touchstart" ,touchStart);
 
 
   /* Sound */
@@ -285,6 +308,7 @@ function addGameView() {
 
 function movePaddle(e) {
   // Mouse Movement
+
   player.y = e.stageY;
 }
 

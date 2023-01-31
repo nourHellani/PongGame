@@ -65,11 +65,32 @@ var gfxLoaded = 0; //used as a preloader, counts the already loaded items
 var tkr = new Object(); //used as an event listener to the Ticker
 
 
+const Direction = {
+  UP: 0,
+  DOWN: 1,
+  STOP: 2
+}
+
+var height, width, wall;
+setDimensions();
+
+canvas.addEventListener("touchcancel", touchCancel);
+canvas.addEventListener("touchend", touchEnd);
+canv.addEventListener("touchmove", touchMove);
+canv.addEventListener("touchstart", touchStart);
+document.addEventListener("keydown", keyDown);
+document.addEventListener("keyup", keyUp);
+window.addEventListener("resize", setDimensions);
+
+
 // Main Function
 
 function Main() {
   /* Link Canvas */
-  canvas = document.getElementById("Pong");
+  var canvas = document.createElement("canvas");
+  document.body.appendChild(canvas);
+  var ctx = canv.getContext("2d"); 
+  // canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
 
 

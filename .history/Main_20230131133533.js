@@ -1,3 +1,6 @@
+var hasTouch = ('ontouchstart' in window);
+$('instructions').addClassName(hasTouch ? 'touch' : 'keyboard');
+
 
 let counter = 0;
 let timeout;
@@ -65,10 +68,14 @@ var gfxLoaded = 0; //used as a preloader, counts the already loaded items
 var tkr = new Object(); //used as an event listener to the Ticker
 
 
+
+
+
 // Main Function
 
 function Main() {
   /* Link Canvas */
+
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
 
@@ -285,6 +292,7 @@ function addGameView() {
 
 function movePaddle(e) {
   // Mouse Movement
+
   player.y = e.stageY;
 }
 

@@ -1,4 +1,3 @@
-
 let counter = 0;
 let timeout;
 let timer_on = 0;
@@ -65,12 +64,20 @@ var gfxLoaded = 0; //used as a preloader, counts the already loaded items
 var tkr = new Object(); //used as an event listener to the Ticker
 
 
+
+
+
 // Main Function
 
 function Main() {
   /* Link Canvas */
+
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
+  stage.addEventListener("touchstart", handleStart);
+  stage.addEventListener("touchmove", handleMove);
+  stage.addEventListener("touchend", handleEnd);
+  el.addEventListener("touchcancel", handleCancel);
 
 
   /* Sound */
@@ -285,6 +292,7 @@ function addGameView() {
 
 function movePaddle(e) {
   // Mouse Movement
+
   player.y = e.stageY;
 }
 

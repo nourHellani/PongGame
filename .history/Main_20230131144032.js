@@ -1,3 +1,62 @@
+var myGamePiece;
+
+function startGame() {
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component( height, color, y) {
+    
+    this.height = height;
+    this.speedY = 0;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect( this.y, this.height);
+    }
+    this.newPos = function() {
+        this.y += this.speedY;        
+    }    
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece.newPos();    
+    myGamePiece.update();
+}
+
+function moveup() {
+    myGamePiece.speedY = -1; 
+}
+
+function movedown() {
+    myGamePiece.speedY = 1; 
+}
+
+function clearmove() {
+    myGamePiece.speedY = 0; 
+}
+
+
+
+
+
+
 
 let counter = 0;
 let timeout;
@@ -65,10 +124,14 @@ var gfxLoaded = 0; //used as a preloader, counts the already loaded items
 var tkr = new Object(); //used as an event listener to the Ticker
 
 
+
+
+
 // Main Function
 
 function Main() {
   /* Link Canvas */
+
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
 
@@ -285,6 +348,7 @@ function addGameView() {
 
 function movePaddle(e) {
   // Mouse Movement
+
   player.y = e.stageY;
 }
 

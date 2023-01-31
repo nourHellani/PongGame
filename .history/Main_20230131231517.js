@@ -65,11 +65,82 @@ var gfxLoaded = 0; //used as a preloader, counts the already loaded items
 var tkr = new Object(); //used as an event listener to the Ticker
 
 
+const Direction = {
+  UP: 0,
+  DOWN: 1,
+  STOP: 2
+}
+
+var height, width, wall;
+setDimensions();
+
+canvas.addEventListener("touchcancel", touchCancel);
+canvas.addEventListener("touchend", touchEnd);
+canvas.addEventListener("touchmove", touchMove);
+canvas.addEventListener("touchstart", touchStart);
+document.addEventListener("keydown", keyDown);
+document.addEventListener("keyup", keyUp);
+window.addEventListener("resize", setDimensions);
+
+
+function drawBackground() {
+  ctx.fillStyle = COLOR_BACKGROUND;
+  ctx.fillRect(0, 0, width, height);
+}
+
+function touch(x) {
+  if (!x) {
+      movePaddlee(Direction.STOP);
+  } else if (x > player.y) {
+      movePaddlee(Direction.UP);
+  } else if (x < player.y) {
+      movePaddlee(Direction.DOWN);
+  }
+}
+
+function movePaddlee(direction) {
+  switch (direction) {
+      case Direction.UP:
+          player.yv = -paddle.spd;
+          break;
+      case Direction.DOWN:
+          paddle.xv = paddle.spd;
+          break;
+      case Direction.STOP:
+          paddle.xv = 0;
+          break;
+  }
+}
+
+
+function touchCancel(ev) {
+  touch(null);
+}
+
+function touchEnd(ev) {
+  touch(null);
+}
+
+function touchMove(ev) {
+  touch(ev.touches[0].clientX);
+}
+
+function touchStart(ev) {
+  if (serve()) {
+      return;
+  }
+  touch(ev.touches[0].clientX);
+}
+
+
 // Main Function
 
 function Main() {
   /* Link Canvas */
-  canvas = document.getElementById("Pong");
+  var canvas = document.createElement("canvas");
+  document.body.appendChild(canvas);
+  var ctx = canv.getContext("2d"); 
+  // canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
 
 
