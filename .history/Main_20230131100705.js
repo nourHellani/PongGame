@@ -406,11 +406,6 @@ function update() {
 
   if (cpuScore.text == "1") {
     alert("lose");
-    clearTimeout(timeout);
-    parseInt(time.text)=60; 		//to avoid loop of timeout
- 
-    reset();
-    timer_on = 0;
   }
 
   // if(!timer_on && (parseInt(playerScore.text) == "1" || parseInt(cpuScore.text) == "1")){

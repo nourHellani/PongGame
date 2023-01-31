@@ -393,30 +393,15 @@ function update() {
 
   /* Check for Win */
 
-  if (playerScore.text == "1") {
+  if (playerScore.text == "10") {
     alert("win");
-    clearTimeout(timeout);
-    parseInt(time.text)=60; 		//to avoid loop of timeout
- 
-    reset();
-    timer_on = 0;
   }
 
   /* Check for Game Over */
 
-  if (cpuScore.text == "1") {
+  if (cpuScore.text == "10") {
     alert("lose");
-    clearTimeout(timeout);
-    parseInt(time.text)=60; 		//to avoid loop of timeout
- 
-    reset();
-    timer_on = 0;
   }
-
-  // if(!timer_on && (parseInt(playerScore.text) == "1" || parseInt(cpuScore.text) == "1")){
-  //   alert("lose");
-
-  // }
 }
 function timedCount() {
   
@@ -424,7 +409,7 @@ function timedCount() {
     time.text = parseInt(time.text - 1);
   }
   
- else { 
+ else if (parseInt(time.text) = 0){ 
  
  clearTimeout(timeout);
  alert('timeup');
@@ -436,7 +421,17 @@ function timedCount() {
 
 
 }
+else if (playerScore.text == "1" || cpuScore.text == "1" ){
+  clearTimeout(timeout);
+ alert('lose');
 
+ parseInt(time.text)=60; 		//to avoid loop of timeout
+ 
+ reset();
+ timer_on = 0;
+
+
+}
  timeout = setTimeout(timedCount, 1000);
 }
 
