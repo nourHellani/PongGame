@@ -418,12 +418,15 @@ function timedCount() {
  reset();
  timer_on = 0;
 
+ //console.log("loop");
 
 }
  timeout = setTimeout(timedCount, 1000);
 }
 
+function stopCount() {
 
+}
 function alert(e) {
   Ticker.removeListener(tkr);
   stage.onMouseMove = null;

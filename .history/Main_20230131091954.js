@@ -405,9 +405,7 @@ function update() {
 }
 function timedCount() {
   
-  if ( parseInt(time.text) > 0) {
-    time.text = parseInt(time.text - 1);
-  }
+  if ( parseInt(time.text) > 0) {time.text = parseInt(time.text - 1);}
  else{ 
  
  clearTimeout(timeout);
@@ -418,12 +416,15 @@ function timedCount() {
  reset();
  timer_on = 0;
 
+ //console.log("loop");
 
 }
  timeout = setTimeout(timedCount, 1000);
 }
 
+function stopCount() {
 
+}
 function alert(e) {
   Ticker.removeListener(tkr);
   stage.onMouseMove = null;
