@@ -397,7 +397,7 @@ function update() {
   if (playerScore.text == "1") {
     alert("win");
     clearTimeout(timeout);
-    parseInt(time.text)=60; 		//to avoid loop of timeout
+    parseInt(time.text)=5; 		//to avoid loop of timeout
  
     reset();
     timer_on = 0;
@@ -408,7 +408,7 @@ function update() {
   if (cpuScore.text == "1") {
     alert("lose");
     clearTimeout(timeout);
-    parseInt(time.text)=60; 		//to avoid loop of timeout
+    parseInt(time.text)=5; 		//to avoid loop of timeout
  
     reset();
     timer_on = 0;
@@ -430,7 +430,7 @@ function timedCount() {
  clearTimeout(timeout);
  alert('timeup');
 
- parseInt(time.text)=60; 		//to avoid loop of timeout
+ parseInt(time.text)=5; 		//to avoid loop of timeout
  
  reset();
  timer_on = 0;
