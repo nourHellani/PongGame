@@ -1,9 +1,17 @@
-window.screen.orientation.lock("portrait-primary")
+const width = 480;
+const height = 320;
 
+const appOptions = {  
+  width: width,
+  height: height,
+  resolution: window.devicePixelRatio,
+  roundPixels: true,
+  transparent: false,
+  backgroundColor: 0x555555,
+};
 
-
-
-
+const app = new PIXI.Application(appOptions);
+document.body.appendChild(app.view);
 
 
 

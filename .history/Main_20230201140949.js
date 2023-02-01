@@ -1,15 +1,5 @@
-window.screen.orientation.lock("portrait-primary")
-
-
-
-
-
-
-
-
-
-
-
+const width = 480;
+const height = 320;
 
 let counter = 0;
 let timeout;

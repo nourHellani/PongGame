@@ -1,7 +1,49 @@
-window.screen.orientation.lock("portrait-primary")
+const width = 480;
+const height = 320;
+
+const appOptions = {  
+  width: width,
+  height: height,
+  resolution: window.devicePixelRatio,
+  roundPixels: true,
+  transparent: false,
+  backgroundColor: 0x555555,
+};
+
+const app = new PIXI.Application(appOptions);
+document.body.appendChild(app.view);
 
 
+coolResize();
+app.ticker.add(coolResize);
 
+drawSquare();
+drawSquare(app.view.width / 2 - 25, app.view.height / 2 - 25);
+
+function coolResize() {  
+  const multiplier = app.renderer.options.resolution || 1;
+  const clientWidth = Math.floor(app.view.clientWidth * multiplier);
+  const clientHeight = Math.floor(app.view.clientHeight * multiplier);
+
+  if (app.view.width !== clientWidth || app.view.height !== clientHeight) {
+    app.view.width = clientWidth;
+    app.view.height = clientHeight;    
+        
+    return true;
+  }
+
+  return false;
+}
+
+function drawSquare(x = 0, y = 0) {
+  const graphics = new PIXI.Graphics();
+  graphics.lineStyle(2, 0xFF00FF, 1);
+  graphics.beginFill(0xFF00BB, 0.25);
+  graphics.drawRoundedRect(x, y, 50, 50, 10);
+  graphics.endFill();
+
+  app.stage.addChild(graphics);
+}
 
 
 

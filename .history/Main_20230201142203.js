@@ -1,6 +1,4 @@
-window.screen.orientation.lock("portrait-primary")
-
-
+var AppFull
 
 
 

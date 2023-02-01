@@ -1,15 +1,3 @@
-window.screen.orientation.lock("portrait-primary")
-
-
-
-
-
-
-
-
-
-
-
 
 let counter = 0;
 let timeout;

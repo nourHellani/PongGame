@@ -4,19 +4,19 @@
 <head>
 
 	<title>Pong Game</title>
-	<link rel="stylesheet" href="style.css" />
-
+	<link rel="stylesheet" href="style.css"/>
+	
 </head>
 
 <body onload="Main();">
 
 	<script>
-		if (UnityLoader.SystemInfo.mobile == true) {
-			window.screen.orientation.lock("landscape-primary")
+		if(UnityLoader.SystemInfo.mobile == true){
+			ScreenOrientation.lock('landscape');
 		}
 	</script>
 
-	<canvas id="Pong" width="480" height="320"></canvas>
+	<canvas id="Pong"  width="480" height="320"></canvas>
 	<script src="easel.js"></script>
 	<script src="Tween.js"></script>
 	<script src="sound.js"></script>

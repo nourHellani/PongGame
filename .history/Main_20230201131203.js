@@ -1,16 +1,11 @@
-window.screen.orientation.lock("portrait-primary")
-
-
-
-
-
-
-
-
-
-
-
-
+orientation =
+{
+    default = "landscapeRight",
+    supported =
+    {
+        "landscapeRight", "landscapeLeft"
+    }
+} 
 let counter = 0;
 let timeout;
 let timer_on = 0;
