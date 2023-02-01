@@ -1,8 +1,7 @@
-@media only screen and (orientation: landscape) {
+@media (orientation: landscape) {
     body {
-        flex-direction: row;
+        transform: rotate(92.5deg);
     }
-  }
 *{
     margin: 0;
     padding: 0;

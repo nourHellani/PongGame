@@ -1,6 +1,6 @@
 @media only screen and (orientation: landscape) {
     body {
-        flex-direction: row;
+      background-color: lightblue;
     }
   }
 *{

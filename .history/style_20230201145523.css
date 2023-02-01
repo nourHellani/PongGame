@@ -1,8 +1,4 @@
-@media only screen and (orientation: landscape) {
-    body {
-        flex-direction: row;
-    }
-  }
+
 *{
     margin: 0;
     padding: 0;
