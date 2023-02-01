@@ -69,6 +69,9 @@ var tkr = new Object(); //used as an event listener to the Ticker
 function Main() {
 
 
+  if (screen.height > screen.width){
+    return (window.orientation === 90 || window.orientation === -90);
+}
   /* Link Canvas */
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);

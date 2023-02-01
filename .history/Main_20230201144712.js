@@ -69,6 +69,9 @@ var tkr = new Object(); //used as an event listener to the Ticker
 function Main() {
 
 
+  if (screen.height > screen.width){
+    alert("Please use Landscape!");
+}
   /* Link Canvas */
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);

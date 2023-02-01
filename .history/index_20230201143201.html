@@ -11,6 +11,12 @@
 
 <body onload="Main();">
 
+	<script>
+		if (UnityLoader.SystemInfo.mobile == true) {
+			window.screen.orientation.lock("landscape-primary")
+		}
+	</script>
+
 	<canvas id="Pong" width="480" height="320"></canvas>
 	<script src="easel.js"></script>
 	<script src="Tween.js"></script>

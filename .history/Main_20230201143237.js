@@ -1,3 +1,9 @@
+
+
+
+
+
+
 let counter = 0;
 let timeout;
 let timer_on = 0;
@@ -67,8 +73,6 @@ var tkr = new Object(); //used as an event listener to the Ticker
 // Main Function
 
 function Main() {
-
-
   /* Link Canvas */
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
