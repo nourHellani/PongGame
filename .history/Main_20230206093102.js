@@ -69,10 +69,18 @@ window.addEventListener("resize", () => {
   Resize();
 });
 let details = navigator.userAgent;
-let regexp = android|iphone|kindle|ipad/i;
-let isMobileDevice = regexp.test(details);
+
+      let regexp = |android|iphone|kindle|ipad/i;
       
-     
+      /* Using test() method to search regexp in details
+      it returns boolean value*/
+      let isMobileDevice = regexp.test(details);
+      
+      if (isMobileDevice) {
+         document.write("<h3>Its a Mobile Device !</h3>");
+      } else {
+         document.write("<h3>Its a Desktop !</h3>");
+      }
 
 function lock (orientation){
   let de=document.documentElement;
@@ -85,21 +93,12 @@ function lock (orientation){
 
 
 }
-
-function unlock (){
-  screen.orientation.unlock();
-  if(document.exitFullscreen){document.exitFullscreen();}
-  else if (document.webkitExitFullScreen){document.webkitExitFullScreen();}
-  else if (document.mozCancelFullScreen){document.mozCancelFullScreen();}
-  else if (document.msExitFullScreen){document.msExitFullScreen();}
-
-}
-
 function Main() {
 
   /* Link Canvas */
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
+
 
   /* Sound */
 
@@ -439,13 +438,6 @@ function update() {
     timer_on = 0;
   }
 
-  
-
-  if (isMobileDevice) {
-    lock('landscape');
- } else {
-    unlock();
- }
   // if(!timer_on && (parseInt(playerScore.text) == "1" || parseInt(cpuScore.text) == "1")){
   //   alert("lose");
 

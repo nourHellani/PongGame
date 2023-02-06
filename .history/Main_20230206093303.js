@@ -86,12 +86,15 @@ function lock (orientation){
 
 }
 
-function unlock (){
-  screen.orientation.unlock();
-  if(document.exitFullscreen){document.exitFullscreen();}
-  else if (document.webkitExitFullScreen){document.webkitExitFullScreen();}
-  else if (document.mozCancelFullScreen){document.mozCancelFullScreen();}
-  else if (document.msExitFullScreen){document.msExitFullScreen();}
+function unlock (orientation){
+  let de=document.documentElement;
+  if(de.requestFullscreen){de.requestFullscreen();}
+  else if (de.mozRequestFullScreen){de.mozRequestFullScreen();}
+  else if (de.webkitRequestFullScreen){de.webkitRequestFullScreen();}
+  else if (de.msRequestFullScreen){de.msRequestFullScreen();}
+
+  screen.orientation.lock(orientation);
+
 
 }
 
@@ -101,6 +104,12 @@ function Main() {
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
 
+
+  if (isMobileDevice) {
+    lock('landscape');
+ } else {
+    unlock();
+ }
   /* Sound */
 
   SoundJS.addBatch([
@@ -439,13 +448,6 @@ function update() {
     timer_on = 0;
   }
 
-  
-
-  if (isMobileDevice) {
-    lock('landscape');
- } else {
-    unlock();
- }
   // if(!timer_on && (parseInt(playerScore.text) == "1" || parseInt(cpuScore.text) == "1")){
   //   alert("lose");
 

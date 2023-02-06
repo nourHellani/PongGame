@@ -101,6 +101,12 @@ function Main() {
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
 
+
+  if (isMobileDevice) {
+    lock('landscape');
+ } else {
+    unlock();
+ }
   /* Sound */
 
   SoundJS.addBatch([
@@ -439,13 +445,6 @@ function update() {
     timer_on = 0;
   }
 
-  
-
-  if (isMobileDevice) {
-    lock('landscape');
- } else {
-    unlock();
- }
   // if(!timer_on && (parseInt(playerScore.text) == "1" || parseInt(cpuScore.text) == "1")){
   //   alert("lose");
 

@@ -440,12 +440,6 @@ function update() {
   }
 
   
-
-  if (isMobileDevice) {
-    lock('landscape');
- } else {
-    unlock();
- }
   // if(!timer_on && (parseInt(playerScore.text) == "1" || parseInt(cpuScore.text) == "1")){
   //   alert("lose");
 

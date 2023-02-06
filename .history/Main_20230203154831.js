@@ -1,6 +1,7 @@
 let counter = 0;
 let timeout;
 let timer_on = 0;
+
 /* Define Canvas */
 
 var canvas;
@@ -64,42 +65,17 @@ var tkr = new Object(); //used as an event listener to the Ticker
 
 
 // Main Function
-//  // While resizing,
-window.addEventListener("resize", () => {
-  Resize();
-});
-let details = navigator.userAgent;
-let regexp = android|iphone|kindle|ipad/i;
-let isMobileDevice = regexp.test(details);
-      
-     
-
-function lock (orientation){
-  let de=document.documentElement;
-  if(de.requestFullscreen){de.requestFullscreen();}
-  else if (de.mozRequestFullScreen){de.mozRequestFullScreen();}
-  else if (de.webkitRequestFullScreen){de.webkitRequestFullScreen();}
-  else if (de.msRequestFullScreen){de.msRequestFullScreen();}
-
-  screen.orientation.lock(orientation);
-
-
-}
-
-function unlock (){
-  screen.orientation.unlock();
-  if(document.exitFullscreen){document.exitFullscreen();}
-  else if (document.webkitExitFullScreen){document.webkitExitFullScreen();}
-  else if (document.mozCancelFullScreen){document.mozCancelFullScreen();}
-  else if (document.msExitFullScreen){document.msExitFullScreen();}
-
-}
 
 function Main() {
+ // While resizing,
+window.addEventListener("resize", () => {
+  Resize();
+})
 
   /* Link Canvas */
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
+
 
   /* Sound */
 
@@ -439,13 +415,6 @@ function update() {
     timer_on = 0;
   }
 
-  
-
-  if (isMobileDevice) {
-    lock('landscape');
- } else {
-    unlock();
- }
   // if(!timer_on && (parseInt(playerScore.text) == "1" || parseInt(cpuScore.text) == "1")){
   //   alert("lose");
 
@@ -507,16 +476,15 @@ function alert(e) {
 }
 function Resize() {
   // The minimum window's width should be 620. If not, alert comes.
-  if (window.innerWidth <= 480) {
+  if (window.innerWidth <= 620) {
       alert("Please Rotate Your Device.");
       canvas.height = window.innerHeight;
       canvas.width = window.innerWidth;
   } else {
       // Or the canvas width and height resets.
-      canvas.width = 480;
-      canvas.height = 320;
+      canvas.width = 600;
+      canvas.height = 400;
   }
 }
 // Plays the Resize function once to test if the user's window is perfectly matches.
-
-
+Resize();

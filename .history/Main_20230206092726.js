@@ -68,11 +68,7 @@ var tkr = new Object(); //used as an event listener to the Ticker
 window.addEventListener("resize", () => {
   Resize();
 });
-let details = navigator.userAgent;
-let regexp = android|iphone|kindle|ipad/i;
-let isMobileDevice = regexp.test(details);
-      
-     
+
 
 function lock (orientation){
   let de=document.documentElement;
@@ -80,26 +76,16 @@ function lock (orientation){
   else if (de.mozRequestFullScreen){de.mozRequestFullScreen();}
   else if (de.webkitRequestFullScreen){de.webkitRequestFullScreen();}
   else if (de.msRequestFullScreen){de.msRequestFullScreen();}
+  scre
 
-  screen.orientation.lock(orientation);
-
-
-}
-
-function unlock (){
-  screen.orientation.unlock();
-  if(document.exitFullscreen){document.exitFullscreen();}
-  else if (document.webkitExitFullScreen){document.webkitExitFullScreen();}
-  else if (document.mozCancelFullScreen){document.mozCancelFullScreen();}
-  else if (document.msExitFullScreen){document.msExitFullScreen();}
 
 }
-
 function Main() {
 
   /* Link Canvas */
   canvas = document.getElementById("Pong");
   stage = new Stage(canvas);
+
 
   /* Sound */
 
@@ -439,13 +425,6 @@ function update() {
     timer_on = 0;
   }
 
-  
-
-  if (isMobileDevice) {
-    lock('landscape');
- } else {
-    unlock();
- }
   // if(!timer_on && (parseInt(playerScore.text) == "1" || parseInt(cpuScore.text) == "1")){
   //   alert("lose");
 
